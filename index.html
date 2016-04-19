@@ -6,43 +6,21 @@
   </head>
 <body>
 
-  <h3>污染城市列表</h3>
-  <ul id="aqi-list">
-<!--   
-    <li>第一名：福州（样例），10</li>
-  	<li>第二名：福州（样例），10</li> -->
-  </ul>
+  <label>请输入北京今天空气质量：<input id="aqi-input" type="text"></label>
+  <button id="button" type="button">确认填写</button>
+
+  <div>您输入的值是：<span id="aqi-display">尚无录入</span></div>
 
 <script type="text/javascript">
 
-var aqiData = [
-  ["北京", 90],
-  ["上海", 50],
-  ["福州", 10],
-  ["广州", 50],
-  ["成都", 90],
-  ["西安", 100]
-];
-
-(function () {
-
-  /*
-  在注释下方编写代码
-  遍历读取aqiData中各个城市的数据
-  将空气质量指数大于60的城市显示到aqi-list的列表中
-  */
-  function compare(a,b){
-    return b[1] - a[1];
-  }
-  aqiData.sort(compare);
-  var aqiUl = document.getElementById("aqi-list");
-  for (var i = 0; i < aqiData.length-1; i++) {
-    if (aqiData[i][1]>60) {
-      var aqiLi = document.createElement("li");
-      aqiLi.innerHTML= "第"+ (i+1) +"名：" + aqiData[i][0] +"," + aqiData[i][1];
-      aqiUl.appendChild(aqiLi);
-          }
-  }
+(function() {
+  var oBtn1=document.getElementById('aqi-input');
+  var oBtn2=document.getElementById('button');
+  var oDiv=document.getElementsByTagName('div')[0];
+  var oSpan=document.getElementById('aqi-display');
+  oBtn2.onclick=function(){
+    oSpan.innerHTML=oBtn1.value;
+  };
 
 })();
 
